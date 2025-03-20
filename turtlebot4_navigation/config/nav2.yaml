@@ -171,7 +171,7 @@ local_costmap:
 
         stereo_points:
           topic: /oakd/rgb/preview/depth/points
-          sensor_frame: oakd_rgb_camera_frame 
+          sensor_frame: oakd_rgb_camera_optical_frame
           data_type: PointCloud2
           marking: true
           clearing: true

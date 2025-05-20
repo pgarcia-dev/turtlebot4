@@ -195,6 +195,7 @@ local_costmap:
           decay_acceleration: 15.0
           model_type: 0
 
+      # You couldn’t make it work with the 3D sensor. Only with the laser. 
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -207,6 +208,7 @@ local_costmap:
         observation_sources: stereo_points
         #observation_sources: scan
 
+        # I couldn’t make it work and visualize it in rviz 
         stereo_points:
           topic: /oakd/rgb/preview/depth/points
           sensor_frame: oakd_rgb_camera_optical_frame
@@ -228,16 +230,17 @@ local_costmap:
           obstacle_range: 4.0
           raytrace_range: 4.5
 
-#        scan:
-#          topic: scan
-#          max_obstacle_height: 2.0
-#          clearing: True
-#          marking: True
-#          data_type: "LaserScan"
-#          raytrace_max_range: 3.0
-#          raytrace_min_range: 0.0
-#          obstacle_max_range: 2.5
-#          obstacle_min_range: 0.0
+        # it was working with the laser 2D sensor
+        scan:
+          topic: scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 3.0
+          raytrace_min_range: 0.0
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.0
 
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"

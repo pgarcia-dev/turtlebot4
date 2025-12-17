@@ -60,6 +60,8 @@
   </link>
     
   <joint name="${name}_rgb_camera_optical_joint" type="fixed">
+      <!-- The following line has been modified to correctly align the point cloud in the simulation. If this configuration proves incompatible with the physical robot, you can implement conditional logic to select the appropriate setting based on the environment -->
+      <!-- <origin xyz="0 0 0" rpy="-${M_PI/2} 0.0 -${M_PI/2}"/> -->
       <origin xyz="0 0 0" rpy="0 0.0 0"/>
       <parent link="${name}_rgb_camera_frame"/>
       <child link="${name}_rgb_camera_optical_frame"/>
